@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYMA Systems - Connecting People, Powering Progress</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.6; color: #333; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    
+    /* Header */
+    header { 
+      background: rgba(255,255,255,0.95); 
+      backdrop-filter: blur(10px);
+      padding: 1rem 0; 
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 2rem; font-weight: bold; color: #4f46e5; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: #333; text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: #4f46e5; }
+    
+    /* Hero */
+    .hero { 
+      text-align: center; 
+      padding: 4rem 0; 
+      color: white; 
+      margin-bottom: 4rem;
+    }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 2rem; }
+    .cta { 
+      display: inline-block; 
+      background: #10b981; 
+      color: white; 
+      padding: 1rem 2rem; 
+      border-radius: 50px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      font-size: 1.1rem;
+    }
+    
+    /* Sections */
+    section { 
+      background: white; 
+      margin: 4rem 0; 
+      padding: 3rem; 
+      border-radius: 20px; 
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; color: #1f2937; }
+    
+    /* Grids */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .card { 
+      background: #f8fafc; 
+      padding: 2rem; 
+      border-radius: 16px; 
+      text-align: center; 
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .card h3 { color: #4f46e5; margin-bottom: 1rem; font-size: 1.5rem; }
+    
+    /* Process Steps */
+    .process-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+    .step { text-align: center; }
+    .step-number { 
+      width: 60px; height: 60px; 
+      background: linear-gradient(135deg, #4f46e5, #7c3aed); 
+      color: white; 
+      border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; 
+      font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;
+    }
+    
+    /* Stats */
+    .stats { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 2rem; }
+    .stat { flex: 1; min-width: 150px; }
+    .stat-number { font-size: 3rem; font-weight: bold; color: #4f46e5; }
+    
+    /* Clients */
+    .clients { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .client-logo { 
+      background: white; 
+      padding: 1rem 2rem; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-weight: bold; min-width: 120px; text-align: center;
+    }
+    
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    
+    /* Footer */
+    footer { 
+      background: #1f2937; 
+      color: white; 
+      text-align: center; 
+      padding: 3rem 0 1rem; 
+      margin-top: 4rem;
+    }
+    .locations { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      section { padding: 2rem 1rem; margin: 2rem 0; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <div class="logo">CYMA Systems</div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Connecting People, Powering Progress</h1>
+      <p>The Power of AI. The Future of Tech. Connecting businesses with the talent and technology to build what's next.</p>
+      <a href="#contact" class="cta">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="container">
+    <div class="grid">
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>Empowering businesses with intelligent talent solutions and transformative technology services that drive progress in the age of AI.</p>
+      </div>
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>Ensuring clients thrive by combining optimal human capital with cutting-edge technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legacy -->
+  <section>
+    <div class="container">
+      <h2>A Legacy of Digital Transformation</h2>
+      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+        Since 2006, we've delivered intelligent IT and staffing solutions to Fortune 1000 enterprises, mid-sized businesses, and the public sector.
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">100+</div>
+          <div>Clients Served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">20+</div>
+          <div>Years of Expertise</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">GSA</div>
+          <div>Certified Partner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Technology Services</h2>
+      <p style="text-align: center; margin-bottom: 3rem;">Empower your business with scalable, AI-powered solutions.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>IT Service Management</h3>
+          <p>Seamless delivery of reliable IT services.</p>
+        </div>
+        <div class="card">
+          <h3>IT Infrastructure</h3>
+          <p>Robust, secure, foundational design.</p>
+        </div>
+        <div class="card">
+          <h3>AI & Machine Learning</h3>
+          <p>Intelligent, predictive insights delivered.</p>
+        </div>
+        <div class="card">
+          <h3>Cyber Security</h3>
+          <p>Proactive digital defense guaranteed.</p>
+        </div>
+        <div class="card">
+          <h3>Cloud & DevOps</h3>
+          <p>Fast, secure, agile cloud.</p>
+        </div>
+        <div class="card">
+          <h3>Software Development</h3>
+          <p>Custom, scalable software solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workforce Solutions -->
+  <section style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+    <div class="container">
+      <h2 style="color: #1f2937;">Workforce Solutions</h2>
+      <p style="text-align: center; margin-bottom: 3rem;">Find flexible talent strategies that scale with your business.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>IT Staffing</h3>
+          <p>Connecting you with top tech talent.</p>
+        </div>
+        <div class="card">
+          <h3>Recruitment Process Outsourcing</h3>
+          <p>End-to-end recruitment, from sourcing to hiring.</p>
+        </div>
+        <div class="card">
+          <h3>Strategic Workforce Consulting</h3>
+          <p>Building talent strategies for growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <h2>How We Partner With You</h2>
+      <div class="grid process-grid">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Discover & Strategize</h3>
+          <p>We begin by understanding your specific business goals and challenges.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Execute with Precision</h3>
+          <p>We execute with precision to deliver measurable results.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Sustain Success</h3>
+          <p>Continuous support & guidance to ensure your solution drives long-term value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foundation -->
+  <section>
+    <div class="container">
+      <h2>Our Foundation for Your Success</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Deep Domain Expertise</h3>
+          <p>We combine deep industry knowledge with innovation to deliver transformative results.</p>
+        </div>
+        <div class="card">
+          <h3>Certified Talent</h3>
+          <p>We hand-pick certified professionals to flawlessly execute on your vision.</p>
+        </div>
+        <div class="card">
+          <h3>Your End-to-End Solution</h3>
+          <p>We provide a complete, simplified suite of services to meet your business needs.</p>
+        </div>
+        <div class="card">
+          <h3>Unwavering Commitment</h3>
+          <p>We build partnerships on a foundation of relentless focus on your goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section id="clients">
+    <div class="container">
+      <h2>Building Lasting Partnerships</h2>
+      <div class="clients">
+        <div class="client-logo">Accenture</div>
+        <div class="client-logo">Oracle</div>
+        <div class="client-logo">Cisco</div>
+        <div class="client-logo">Samsung</div>
+        <div class="client-logo">Bank of America</div>
+        <div class="client-logo">SAP</div>
+        <div class="client-logo">Canon</div>
+        <div class="client-logo">Medtronic</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div class="grid contact-grid">
+        <div>
+          <h3>HQ - USA</h3>
+          <p>Cyma Systems Inc.<br>
+          360 Tolland Turnpike, Suite 2D,<br>
+          Manchester, CT 06042<br>
+          <strong>860 791 6356</strong></p>
+          
+          <h4 style="margin-top: 2rem;">Dubai</h4>
+          <p>Cyma Business Solutions L.L.C FZ<br>
+          Meydan Grandstand, 6th floor,<br>
+          Meydan Road, Nad Al Sheba, Dubai, UAE<br>
+          <strong>860 791 6356</strong></p>
+          
+          <h4 style="margin-top: 2rem;">India</h4>
+          <p>Cyma Business Solutions Pvt Ltd<br>
+          Megha Hills, Sri Sai Nagar, Madhapur,<br>
+          Hyderabad, Telangana 500 081<br>
+          <strong>917 764 1935</strong></p>
+        </div>
+        <div>
+          <h3>Contact Us</h3>
+          <p><strong>Email:</strong> <a href="mailto:hr@cymasys.com" style="color: #4f46e5;">hr@cymasys.com</a></p>
+          <p><strong>Website:</strong> <a href="https://cymasys.com" style="color: #4f46e5;" target="_blank">cymasys.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 CYMA Systems. Consider IT Done. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
