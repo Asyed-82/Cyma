@@ -4,119 +4,605 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CYMA Systems - Connecting People, Powering Progress</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* Color Scheme based on CYMA Logo */
+    :root {
+      --primary-blue: #1a3a8f;
+      --secondary-blue: #2a56c6;
+      --accent-teal: #00b4b3;
+      --light-blue: #e6f0ff;
+      --dark-blue: #0a1f5c;
+      --gray-light: #f5f7fa;
+      --gray-dark: #333333;
+      --white: #ffffff;
+    }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
     body { 
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      line-height: 1.6; color: #333; 
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
+      line-height: 1.6; 
+      color: var(--gray-dark);
+      background-color: var(--white);
+      overflow-x: hidden;
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
     
-    /* Header */
+    .container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 20px; 
+    }
+    
+    /* Header & Navigation */
     header { 
-      background: rgba(255,255,255,0.95); 
-      backdrop-filter: blur(10px);
-      padding: 1rem 0; 
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      background-color: var(--white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 2rem; font-weight: bold; color: #4f46e5; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { color: #333; text-decoration: none; font-weight: 500; }
-    .nav-links a:hover { color: #4f46e5; }
     
-    /* Hero */
-    .hero { 
-      text-align: center; 
-      padding: 4rem 0; 
-      color: white; 
-      margin-bottom: 4rem;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 2rem; }
-    .cta { 
-      display: inline-block; 
-      background: #10b981; 
-      color: white; 
-      padding: 1rem 2rem; 
-      border-radius: 50px; 
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      letter-spacing: 0.5px;
+    }
+    
+    .nav-links { 
+      display: flex; 
+      list-style: none; 
+      gap: 2rem; 
+    }
+    
+    .nav-links a { 
+      color: var(--gray-dark); 
       text-decoration: none; 
-      font-weight: 600; 
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a:hover { 
+      color: var(--primary-blue); 
+      background-color: var(--light-blue);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background: var(--accent-teal);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--white);
+      min-width: 220px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 1;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-content a {
+      display: block;
+      padding: 12px 20px;
+      color: var(--gray-dark);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: var(--light-blue);
+      color: var(--primary-blue);
+      padding-left: 25px;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      color: var(--white);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--accent-teal);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
       font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 180, 179, 0.3);
+      border: 2px solid transparent;
+    }
+    
+    .cta-button:hover {
+      background: transparent;
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 180, 179, 0.4);
     }
     
     /* Sections */
-    section { 
-      background: white; 
-      margin: 4rem 0; 
-      padding: 3rem; 
-      border-radius: 20px; 
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    section {
+      padding: 5rem 0;
     }
-    h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; color: #1f2937; }
     
-    /* Grids */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .card { 
-      background: #f8fafc; 
-      padding: 2rem; 
-      border-radius: 16px; 
-      text-align: center; 
-      border: 1px solid #e2e8f0;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
     }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    .card h3 { color: #4f46e5; margin-bottom: 1rem; font-size: 1.5rem; }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: var(--accent-teal);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Cards & Grids */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border-top: 4px solid var(--accent-teal);
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card h3 {
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .card p {
+      color: #555;
+      line-height: 1.7;
+    }
+    
+    .icon-container {
+      width: 70px;
+      height: 70px;
+      background: var(--light-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .icon-container i {
+      font-size: 1.8rem;
+      color: var(--primary-blue);
+    }
     
     /* Process Steps */
-    .process-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
-    .step { text-align: center; }
-    .step-number { 
-      width: 60px; height: 60px; 
-      background: linear-gradient(135deg, #4f46e5, #7c3aed); 
-      color: white; 
-      border-radius: 50%; 
-      display: flex; align-items: center; justify-content: center; 
-      font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;
+    .process-grid {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
     
-    /* Stats */
-    .stats { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 2rem; }
-    .stat { flex: 1; min-width: 150px; }
-    .stat-number { font-size: 3rem; font-weight: bold; color: #4f46e5; }
-    
-    /* Clients */
-    .clients { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-    .client-logo { 
-      background: white; 
-      padding: 1rem 2rem; 
-      border-radius: 12px; 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      font-weight: bold; min-width: 120px; text-align: center;
+    .step {
+      text-align: center;
+      padding: 2rem;
     }
     
-    /* Contact */
-    .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .step-number {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 6px 15px rgba(26, 58, 143, 0.2);
+    }
+    
+    .step h3 {
+      margin-bottom: 1rem;
+      color: var(--dark-blue);
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+      color: var(--white);
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .stat-item {
+      padding: 2rem;
+    }
+    
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--accent-teal);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    
+    .stat-text {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Clients Section */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .client-logo {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+    }
+    
+    .client-logo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .client-logo img {
+      max-width: 100%;
+      max-height: 60px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .client-logo:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+    
+    /* Contact Section */
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .contact-info h3 {
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .contact-info p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .location {
+      background: var(--light-blue);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .location h4 {
+      color: var(--primary-blue);
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .contact-form button {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-form button:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-2px);
+    }
     
     /* Footer */
-    footer { 
-      background: #1f2937; 
-      color: white; 
-      text-align: center; 
-      padding: 3rem 0 1rem; 
-      margin-top: 4rem;
+    footer {
+      background: var(--dark-blue);
+      color: var(--white);
+      padding: 4rem 0 2rem;
     }
-    .locations { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
     
-    /* Responsive */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-logo {
+      height: 50px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links h4 {
+      color: var(--accent-teal);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent-teal);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background: var(--accent-teal);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      section { padding: 2rem 1rem; margin: 2rem 0; }
-      .nav-links { display: none; }
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 3rem 0;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -124,22 +610,55 @@
   <!-- Header -->
   <header>
     <nav class="container">
-      <div class="logo">CYMA Systems</div>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
+      <div class="logo-container">
+        <!-- Replace with your actual logo file path -->
+        <img src="Cymalogo.png" alt="CYMA Systems Logo" class="logo-img">
+        <div class="logo-text">CYMA Systems</div>
+      </div>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+          <a href="#services">Business Solutions <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#it-services">IT Services</a>
+            <a href="#staffing">Staffing Solutions</a>
+            <a href="#consulting">Consulting</a>
+            <a href="#digital-transformation">Digital Transformation</a>
+          </div>
+        </li>
         <li><a href="#industries">Industries</a></li>
-        <li><a href="#process">Process</a></li>
+        <li class="dropdown">
+          <a href="#job-seekers">Job Seekers <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#find-jobs">Find Jobs</a>
+            <a href="#submit-resume">Submit Resume</a>
+            <a href="#career-advice">Career Advice</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#resources">Resources <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#blogs">Blogs</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#white-papers">White Papers</a>
+          </div>
+        </li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content container">
       <h1>Connecting People, Powering Progress</h1>
       <p>The Power of AI. The Future of Tech. Connecting businesses with the talent and technology to build what's next.</p>
-      <a href="#contact" class="cta">Get In Touch</a>
+      <a href="#contact" class="cta-button">Get In Touch</a>
     </div>
   </section>
 
@@ -147,35 +666,48 @@
   <section class="container">
     <div class="grid">
       <div class="card">
+        <div class="icon-container">
+          <i class="fas fa-bullseye"></i>
+        </div>
         <h3>Our Mission</h3>
         <p>Empowering businesses with intelligent talent solutions and transformative technology services that drive progress in the age of AI.</p>
       </div>
       <div class="card">
+        <div class="icon-container">
+          <i class="fas fa-eye"></i>
+        </div>
         <h3>Our Vision</h3>
-        <p>Ensuring clients thrive by combining optimal human capital with cutting-edge technology.</p>
+        <p>Ensuring clients thrive by combining optimal human capital with cutting-edge technology to create sustainable competitive advantage.</p>
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <i class="fas fa-history"></i>
+        </div>
+        <h3>Our Legacy</h3>
+        <p>Since 2006, we've delivered intelligent IT and staffing solutions to Fortune 1000 enterprises, mid-sized businesses, and the public sector.</p>
       </div>
     </div>
   </section>
 
-  <!-- Legacy -->
-  <section>
+  <!-- Stats Section -->
+  <section class="stats-section">
     <div class="container">
-      <h2>A Legacy of Digital Transformation</h2>
-      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
-        Since 2006, we've delivered intelligent IT and staffing solutions to Fortune 1000 enterprises, mid-sized businesses, and the public sector.
-      </p>
       <div class="stats">
-        <div class="stat">
+        <div class="stat-item">
           <div class="stat-number">100+</div>
-          <div>Clients Served</div>
+          <div class="stat-text">Clients Served</div>
         </div>
-        <div class="stat">
+        <div class="stat-item">
           <div class="stat-number">20+</div>
-          <div>Years of Expertise</div>
+          <div class="stat-text">Years of Expertise</div>
         </div>
-        <div class="stat">
+        <div class="stat-item">
           <div class="stat-number">GSA</div>
-          <div>Certified Partner</div>
+          <div class="stat-text">Certified Partner</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5000+</div>
+          <div class="stat-text">Projects Completed</div>
         </div>
       </div>
     </div>
@@ -184,54 +716,87 @@
   <!-- Services -->
   <section id="services">
     <div class="container">
-      <h2>Technology Services</h2>
-      <p style="text-align: center; margin-bottom: 3rem;">Empower your business with scalable, AI-powered solutions.</p>
+      <div class="section-title">
+        <h2>Technology Services</h2>
+        <p>Empower your business with scalable, AI-powered solutions designed for the future</p>
+      </div>
+      
       <div class="grid">
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-server"></i>
+          </div>
           <h3>IT Service Management</h3>
-          <p>Seamless delivery of reliable IT services.</p>
+          <p>Seamless delivery of reliable IT services with AI-driven monitoring and proactive maintenance.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-network-wired"></i>
+          </div>
           <h3>IT Infrastructure</h3>
-          <p>Robust, secure, foundational design.</p>
+          <p>Robust, secure, foundational design with cloud integration and hybrid environment support.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-robot"></i>
+          </div>
           <h3>AI & Machine Learning</h3>
-          <p>Intelligent, predictive insights delivered.</p>
+          <p>Intelligent, predictive insights delivered through custom AI models and ML solutions.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-shield-alt"></i>
+          </div>
           <h3>Cyber Security</h3>
-          <p>Proactive digital defense guaranteed.</p>
+          <p>Proactive digital defense guaranteed with 24/7 monitoring and threat intelligence.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-cloud"></i>
+          </div>
           <h3>Cloud & DevOps</h3>
-          <p>Fast, secure, agile cloud.</p>
+          <p>Fast, secure, agile cloud solutions with automated CI/CD pipelines and infrastructure as code.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-code"></i>
+          </div>
           <h3>Software Development</h3>
-          <p>Custom, scalable software solutions.</p>
+          <p>Custom, scalable software solutions using cutting-edge technologies and agile methodologies.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Workforce Solutions -->
-  <section style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+  <section style="background-color: var(--light-blue);">
     <div class="container">
-      <h2 style="color: #1f2937;">Workforce Solutions</h2>
-      <p style="text-align: center; margin-bottom: 3rem;">Find flexible talent strategies that scale with your business.</p>
+      <div class="section-title">
+        <h2>Workforce Solutions</h2>
+        <p>Find flexible talent strategies that scale with your business needs and growth objectives</p>
+      </div>
+      
       <div class="grid">
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-users"></i>
+          </div>
           <h3>IT Staffing</h3>
-          <p>Connecting you with top tech talent.</p>
+          <p>Connecting you with top tech talent for contract, contract-to-hire, and direct placement roles.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-user-tie"></i>
+          </div>
           <h3>Recruitment Process Outsourcing</h3>
-          <p>End-to-end recruitment, from sourcing to hiring.</p>
+          <p>End-to-end recruitment, from sourcing to hiring, with dedicated recruitment teams.</p>
         </div>
         <div class="card">
+          <div class="icon-container">
+            <i class="fas fa-chart-line"></i>
+          </div>
           <h3>Strategic Workforce Consulting</h3>
-          <p>Building talent strategies for growth.</p>
+          <p>Building talent strategies for growth, transformation, and digital innovation.</p>
         </div>
       </div>
     </div>
@@ -240,65 +805,58 @@
   <!-- Process -->
   <section id="process">
     <div class="container">
-      <h2>How We Partner With You</h2>
+      <div class="section-title">
+        <h2>How We Partner With You</h2>
+        <p>Our proven methodology ensures successful outcomes and lasting partnerships</p>
+      </div>
+      
       <div class="grid process-grid">
         <div class="step">
           <div class="step-number">01</div>
           <h3>Discover & Strategize</h3>
-          <p>We begin by understanding your specific business goals and challenges.</p>
+          <p>We begin by understanding your specific business goals, challenges, and opportunities through deep discovery sessions.</p>
         </div>
         <div class="step">
           <div class="step-number">02</div>
           <h3>Execute with Precision</h3>
-          <p>We execute with precision to deliver measurable results.</p>
+          <p>Our certified experts execute with precision using agile methodologies to deliver measurable results on time and within budget.</p>
         </div>
         <div class="step">
           <div class="step-number">03</div>
           <h3>Sustain Success</h3>
-          <p>Continuous support & guidance to ensure your solution drives long-term value.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Foundation -->
-  <section>
-    <div class="container">
-      <h2>Our Foundation for Your Success</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Deep Domain Expertise</h3>
-          <p>We combine deep industry knowledge with innovation to deliver transformative results.</p>
-        </div>
-        <div class="card">
-          <h3>Certified Talent</h3>
-          <p>We hand-pick certified professionals to flawlessly execute on your vision.</p>
-        </div>
-        <div class="card">
-          <h3>Your End-to-End Solution</h3>
-          <p>We provide a complete, simplified suite of services to meet your business needs.</p>
-        </div>
-        <div class="card">
-          <h3>Unwavering Commitment</h3>
-          <p>We build partnerships on a foundation of relentless focus on your goals.</p>
+          <p>We provide continuous support, optimization, and guidance to ensure your solution drives long-term value and growth.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Clients -->
-  <section id="clients">
+  <section id="clients" style="background-color: var(--gray-light);">
     <div class="container">
-      <h2>Building Lasting Partnerships</h2>
-      <div class="clients">
-        <div class="client-logo">Accenture</div>
-        <div class="client-logo">Oracle</div>
-        <div class="client-logo">Cisco</div>
-        <div class="client-logo">Samsung</div>
-        <div class="client-logo">Bank of America</div>
-        <div class="client-logo">SAP</div>
-        <div class="client-logo">Canon</div>
-        <div class="client-logo">Medtronic</div>
+      <div class="section-title">
+        <h2>Building Lasting Partnerships</h2>
+        <p>Trusted by industry leaders and innovators across the globe</p>
+      </div>
+      
+      <div class="clients-grid">
+        <div class="client-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt="Accenture">
+        </div>
+        <div class="client-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
+        </div>
+        <div class="client-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco">
+        </div>
+        <div class="client-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+        </div>
+        <div class="client-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Bank_of_America_logo_%28blue%29.svg" alt="Bank of America">
+        </div>
+        <div class="client-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP">
+        </div>
       </div>
     </div>
   </section>
@@ -306,31 +864,50 @@
   <!-- Contact -->
   <section id="contact">
     <div class="container">
-      <h2>Get In Touch</h2>
-      <div class="grid contact-grid">
-        <div>
-          <h3>HQ - USA</h3>
-          <p>Cyma Systems Inc.<br>
-          360 Tolland Turnpike, Suite 2D,<br>
-          Manchester, CT 06042<br>
-          <strong>860 791 6356</strong></p>
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>Connect with our team to discuss how we can help power your progress</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="location">
+            <h4><i class="fas fa-map-marker-alt"></i> HQ - USA</h4>
+            <p>Cyma Systems Inc.<br>
+            360 Tolland Turnpike, Suite 2D,<br>
+            Manchester, CT 06042<br>
+            <strong>Phone:</strong> 860 791 6356</p>
+          </div>
           
-          <h4 style="margin-top: 2rem;">Dubai</h4>
-          <p>Cyma Business Solutions L.L.C FZ<br>
-          Meydan Grandstand, 6th floor,<br>
-          Meydan Road, Nad Al Sheba, Dubai, UAE<br>
-          <strong>860 791 6356</strong></p>
+          <div class="location">
+            <h4><i class="fas fa-map-marker-alt"></i> Dubai</h4>
+            <p>Cyma Business Solutions L.L.C FZ<br>
+            Meydan Grandstand, 6th floor,<br>
+            Meydan Road, Nad Al Sheba, Dubai, UAE<br>
+            <strong>Phone:</strong> +971 4 123 4567</p>
+          </div>
           
-          <h4 style="margin-top: 2rem;">India</h4>
-          <p>Cyma Business Solutions Pvt Ltd<br>
-          Megha Hills, Sri Sai Nagar, Madhapur,<br>
-          Hyderabad, Telangana 500 081<br>
-          <strong>917 764 1935</strong></p>
+          <div class="location">
+            <h4><i class="fas fa-map-marker-alt"></i> India</h4>
+            <p>Cyma Business Solutions Pvt Ltd<br>
+            Megha Hills, Sri Sai Nagar, Madhapur,<br>
+            Hyderabad, Telangana 500 081<br>
+            <strong>Phone:</strong> 917 764 1935</p>
+          </div>
+          
+          <p><strong>Email:</strong> <a href="mailto:hr@cymasys.com" style="color: var(--primary-blue);">hr@cymasys.com</a></p>
+          <p><strong>Website:</strong> <a href="https://cymasys.com" style="color: var(--primary-blue);" target="_blank">cymasys.com</a></p>
         </div>
-        <div>
-          <h3>Contact Us</h3>
-          <p><strong>Email:</strong> <a href="mailto:hr@cymasys.com" style="color: #4f46e5;">hr@cymasys.com</a></p>
-          <p><strong>Website:</strong> <a href="https://cymasys.com" style="color: #4f46e5;" target="_blank">cymasys.com</a></p>
+        
+        <div class="contact-form">
+          <h3>Send us a Message</h3>
+          <form id="contactForm">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
         </div>
       </div>
     </div>
@@ -339,8 +916,120 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 CYMA Systems. Consider IT Done. All rights reserved.</p>
+      <div class="footer-grid">
+        <div>
+          <img src="Cymalogo.png" alt="CYMA Systems Logo" class="footer-logo">
+          <p>Connecting People, Powering Progress since 2006. We deliver intelligent talent solutions and transformative technology services.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#it-services">IT Services</a></li>
+            <li><a href="#staffing">Staffing Solutions</a></li>
+            <li><a href="#consulting">Consulting</a></li>
+            <li><a href="#digital-transformation">Digital Transformation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#cookies">Cookie Policy</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2026 CYMA Systems. Consider IT Done. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      contactForm.reset();
+    });
+    
+    // Add animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.card, .step, .stat-item').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
