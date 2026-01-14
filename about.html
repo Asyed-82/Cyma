@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CYMA Systems | Digital Transformation Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CYMA Brand Colors - Professional Blue Theme */
+        :root {
+            --cyma-primary: #1c2b6d;
+            --cyma-secondary: #2d3e9d;
+            --cyma-accent: #00b0f0;
+            --cyma-light: #f5f7fa;
+            --cyma-dark: #0a0f2e;
+            --cyma-text: #333333;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #1c2b6d 0%, #2d3e9d 100%);
+            --gradient-accent: linear-gradient(135deg, #00b0f0 0%, #2d9cdb 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--cyma-text);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cyma-primary);
+        }
+
+        .logo-subtext {
+            font-size: 0.8rem;
+            color: var(--cyma-accent);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: -3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--cyma-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--cyma-accent);
+            background-color: rgba(0, 176, 240, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--cyma-accent);
+            background-color: rgba(0, 176, 240, 0.1);
+        }
+
+        .cta-button {
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 176, 240, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(28, 43, 109, 0.05) 0%, rgba(45, 62, 157, 0.05) 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--cyma-accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-subtitle::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: var(--cyma-accent);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--cyma-primary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            color: var(--cyma-accent);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--cyma-text);
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--cyma-accent);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cyma-secondary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--cyma-text);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--cyma-accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--cyma-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            color: var(--cyma-accent);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--cyma-text);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cyma-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--cyma-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(28, 43, 109, 0.05) 0%, rgba(0, 176, 240, 0.05) 100%);
+            border-left: 4px solid var(--cyma-accent);
+            padding: 30px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-top: 30px;
+        }
+
+        .highlight-box p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--cyma-primary);
+            margin: 0;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Core Values Section */
+        .values-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .values-section .section-title,
+        .values-section .section-description {
+            color: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .value-icon i {
+            font-size: 2.5rem;
+            color: var(--cyma-accent);
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .value-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Values List Section */
+        .values-list-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .values-list-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .values-list-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 500px;
+        }
+
+        .values-list-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .values-list {
+            padding-top: 20px;
+        }
+
+        .value-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .value-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+            height: 50px;
+            background: var(--gradient-accent);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .value-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cyma-primary);
+            margin-bottom: 10px;
+        }
+
+        .value-content p {
+            font-size: 1rem;
+            color: var(--cyma-text);
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Legacy Section */
+        .legacy-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(28, 43, 109, 0.05) 0%, rgba(45, 62, 157, 0.05) 100%);
+        }
+
+        .legacy-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .legacy-stat {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .legacy-stat:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .legacy-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cyma-secondary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .legacy-text {
+            font-size: 1rem;
+            color: var(--cyma-text);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path d="M0,200 Q100,150 200,200 T400,200" stroke="%23ffffff" stroke-width="1" fill="none" opacity="0.1"/><path d="M0,100 Q100,50 200,100 T400,100" stroke="%23ffffff" stroke-width="1" fill="none" opacity="0.08"/><path d="M0,300 Q100,250 200,300 T400,300" stroke="%23ffffff" stroke-width="1" fill="none" opacity="0.08"/></svg>');
+            background-size: cover;
+            opacity: 0.5;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--cyma-dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--cyma-accent);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyma-accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--cyma-accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .values-list-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .legacy-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 40px auto 0;
+            }
+            
+            .legacy-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-description,
+            .section-description {
+                font-size: 1rem;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo-container">
+                    <img src="https://raw.githubusercontent.com/Asyed-82/cyma-assets/main/Cymalogo.jpeg" alt="CYMA Systems Logo" class="logo-img">
+                    <div>
+                        <div class="logo-text">CYMA SYSTEMS</div>
+                        <div class="logo-subtext">AI-POWERED DIGITAL TRANSFORMATION</div>
+                    </div>
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About Us</a>
+                    <a href="business-solutions.html" class="nav-link">Business Solutions</a>
+                    <a href="industries.html" class="nav-link">Industries</a>
+                    <a href="job-seekers.html" class="nav-link">Job Seekers</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <button class="cta-button">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-subtitle">About Our Company</div>
+                    <h1 class="hero-title">A Legacy of <span>Digital Transformation</span></h1>
+                    <p class="hero-description">
+                        More than a tech firm, we are your strategic partner in growth. Our insights empower businesses of all sizes to accelerate market entry, maximize technology, and drive sales, boosting profitability and building a competitive edge.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="20">0+</div>
+                            <div class="stat-text">Years in Business</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="5000">0+</div>
+                            <div class="stat-text">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-text">Fortune Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">GSA</div>
+                            <div class="stat-text">Certified Partner</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="CYMA Systems Team Collaboration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Story</div>
+                <h2 class="section-title">Who <span>We Are</span></h2>
+                <p class="section-description">
+                    Since 2006, we've delivered intelligent IT and staffing solutions to Fortune 1000 enterprises, mid-sized businesses, and the public sector. We combine deep industry knowledge with innovation to deliver transformative results.
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Ensuring Clients Success Across Industries</h3>
+                    <p>
+                        Founded in 2006, CYMA Systems has grown from a visionary startup into a trusted technology partner for businesses across the globe. Our journey began with a simple mission: to bridge the gap between cutting-edge technology and real-world business challenges.
+                    </p>
+                    <p>
+                        Over the past two decades, we've evolved into a comprehensive technology solutions provider, helping organizations navigate digital transformation, optimize operations, and achieve sustainable growth.
+                    </p>
+                    <p>
+                        Our team of certified professionals brings together deep domain expertise across industries, combining technical excellence with strategic business acumen to deliver solutions that drive measurable results.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <p>"We build partnerships on a foundation of relentless focus on your goals, unwavering commitment to excellence, and deep domain expertise that delivers transformative results."</p>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="CYMA Systems Digital Transformation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Foundation</div>
+                <h2 class="section-title">Mission, Vision & <span>Values</span></h2>
+                <p class="section-description">
+                    Our guiding principles that shape every decision we make and every solution we deliver
+                </p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="value-title">Our Mission</h3>
+                    <p class="value-description">
+                        Designing custom technology solutions for strategic, meaningful results. Empowering businesses with intelligent talent solutions and transformative technology services that drive progress in the age of AI.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="value-title">Our Vision</h3>
+                    <p class="value-description">
+                        Ensuring clients thrive by combining optimal human capital with cutting-edge technology. Creating a future where technology drives sustainable growth and competitive advantage across industries.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="value-title">Our Values</h3>
+                    <p class="value-description">
+                        Integrity, trust, customer service, collaboration, innovation, knowledge, and perfection. These core principles guide every decision we make and every solution we deliver.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values List Section -->
+    <section class="values-list-section">
+        <div class="container">
+            <div class="values-list-container">
+                <div class="values-list-image">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="CYMA Systems Values in Action">
+                </div>
+                
+                <div class="values-list">
+                    <div class="value-item">
+                        <div class="value-number">1</div>
+                        <div class="value-content">
+                            <h4>Integrity</h4>
+                            <p>We conduct business with honesty, transparency, and ethical practices in all our interactions and deliverables.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">2</div>
+                        <div class="value-content">
+                            <h4>Trust</h4>
+                            <p>Building lasting relationships based on reliability, consistency, and delivering on our promises to clients and partners.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">3</div>
+                        <div class="value-content">
+                            <h4>Customer Service</h4>
+                            <p>Putting our clients first, understanding their needs, and providing exceptional support throughout our partnership.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">4</div>
+                        <div class="value-content">
+                            <h4>Collaboration</h4>
+                            <p>Working together internally and with clients to achieve shared goals and create better outcomes for everyone.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">5</div>
+                        <div class="value-content">
+                            <h4>Innovation</h4>
+                            <p>Continuously seeking new approaches, technologies, and methodologies to solve complex business challenges.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">6</div>
+                        <div class="value-content">
+                            <h4>Knowledge</h4>
+                            <p>Investing in continuous learning and expertise development to stay at the forefront of technology and industry trends.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">7</div>
+                        <div class="value-content">
+                            <h4>Perfection</h4>
+                            <p>Striving for excellence in every detail, delivering solutions that meet the highest standards of quality and performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Section -->
+    <section class="legacy-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Legacy</div>
+                <h2 class="section-title">20 Years of <span>Excellence</span></h2>
+                <p class="section-description">
+                    A proven track record of delivering transformative solutions that drive business success
+                </p>
+            </div>
+            
+            <div class="legacy-stats">
+                <div class="legacy-stat">
+                    <div class="legacy-number" data-target="20">0+</div>
+                    <div class="legacy-text">Years in Business</div>
+                </div>
+                
+                <div class="legacy-stat">
+                    <div class="legacy-number" data-target="5000">0+</div>
+                    <div class="legacy-text">Projects Delivered</div>
+                </div>
+                
+                <div class="legacy-stat">
+                    <div class="legacy-number" data-target="100">0+</div>
+                    <div class="legacy-text">Fortune Clients</div>
+                </div>
+                
+                <div class="legacy-stat">
+                    <div class="legacy-number">GSA</div>
+                    <div class="legacy-text">Certified Partner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Business?</h2>
+                <p class="cta-description">
+                    Partner with us to leverage our 20+ years of expertise in digital transformation, AI solutions, and strategic technology consulting. Let's discuss how we can help you achieve your business objectives.
+                </p>
+                <a href="contact.html" class="cta-button" style="display: inline-block; background: white; color: var(--cyma-primary); text-decoration: none; padding: 1rem 3rem; border-radius: 6px; font-weight: 600; font-size: 1.1rem; transition: var(--transition);">
+                    Schedule a Consultation <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>CYMA Systems</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7; margin-top: 15px;">
+                        Information Technology & Services · Manchester, Connecticut · 12K followers · 201-500 employees
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="business-solutions.html">Business Solutions</a></li>
+                        <li><a href="industries.html">Industries</a></li>
+                        <li><a href="job-seekers.html">Job Seekers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="ai-ml.html">AI & Machine Learning</a></li>
+                        <li><a href="cloud.html">Cloud Solutions</a></li>
+                        <li><a href="cyber-security.html">Cyber Security</a></li>
+                        <li><a href="it-staffing.html">IT Staffing</a></li>
+                        <li><a href="consulting.html">Strategic Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div style="margin-top: 15px;">
+                        <p style="margin-bottom: 15px; display: flex; align-items: flex-start; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">
+                            <i style="margin-right: 15px; color: var(--cyma-accent); font-size: 1.1rem; margin-top: 3px;" class="fas fa-map-marker-alt"></i>
+                            360 Tolland Turnpike, Suite 2D<br>Manchester, CT 06042
+                        </p>
+                        <p style="margin-bottom: 15px; display: flex; align-items: flex-start; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">
+                            <i style="margin-right: 15px; color: var(--cyma-accent); font-size: 1.1rem; margin-top: 3px;" class="fas fa-phone"></i>
+                            860 791 6356
+                        </p>
+                        <p style="margin-bottom: 15px; display: flex; align-items: flex-start; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">
+                            <i style="margin-right: 15px; color: var(--cyma-accent); font-size: 1.1rem; margin-top: 3px;" class="fas fa-envelope"></i>
+                            hr@cymasys.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 CYMA Systems Inc. ENSURING CLIENTS SUCCESS ACROSS INDUSTRIES. All rights reserved.</p>
+                <p style="margin-top: 10px;">Consider IT Done.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animate statistics counters
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, 20);
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate hero stats
+            const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+            statNumbers.forEach(stat => {
+                const targetText = stat.getAttribute('data-target');
+                const suffix = stat.textContent.includes('+') ? '+' : '';
+                const target = parseInt(targetText);
+                
+                if (!isNaN(target)) {
+                    animateCounter(stat, target, suffix);
+                }
+            });
+
+            // Animate legacy stats with delay
+            setTimeout(() => {
+                const legacyNumbers = document.querySelectorAll('.legacy-number[data-target]');
+                legacyNumbers.forEach(stat => {
+                    const targetText = stat.getAttribute('data-target');
+                    const suffix = stat.textContent.includes('+') ? '+' : '';
+                    const target = parseInt(targetText);
+                    
+                    if (!isNaN(target)) {
+                        animateCounter(stat, target, suffix);
+                    }
+                });
+            }, 1000);
+
+            // Add scroll animations for value cards
+            const valueCards = document.querySelectorAll('.value-card');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            valueCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Add animation for legacy stats
+            const legacyStats = document.querySelectorAll('.legacy-stat');
+            legacyStats.forEach(stat => {
+                stat.style.opacity = '0';
+                stat.style.transform = 'translateY(30px)';
+                stat.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(stat);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Update logo source with your actual GitHub URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo-img');
+            if (logo) {
+                // Update this with your actual GitHub URL
+                const GITHUB_USERNAME = 'Asyed-82';
+                const GITHUB_REPO = 'cyma-assets';
+                const LOGO_FILENAME = 'Cymalogo.jpeg';
+                
+                const LOGO_URL = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${LOGO_FILENAME}`;
+                logo.src = LOGO_URL;
+                
+                // Add error handling
+                logo.onerror = function() {
+                    console.error(`Failed to load logo from: ${LOGO_URL}`);
+                    // You could set a fallback logo here
+                };
+            }
+        });
+    </script>
+</body>
+</html>
